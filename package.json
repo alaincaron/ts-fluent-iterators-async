@@ -1,7 +1,7 @@
 {
-  "name": "ts-fluent-iterators",
-  "version": "13.0.5",
-  "description": "lazy fluent iterators",
+  "name": "ts-fluent-iterators-async",
+  "version": "0.0.1",
+  "description": "lazy fluent async iterators",
   "main": "./dist/index.js",
   "engines": {
     "node": "*"
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alaincaron/ts-fluent-iterators.git"
+    "url": "git+https://github.com/alaincaron/ts-fluent-iterators-async.git"
   },
   "keywords": [
     "lazy",
@@ -35,9 +35,9 @@
   "author": "Alain Caron",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alaincaron/ts-fluent-iterators/issues"
+    "url": "https://github.com/alaincaron/ts-fluent-iterators-async/issues"
   },
-  "homepage": "https://github.com/alaincaron/ts-fluent-iterators#readme",
+  "homepage": "https://github.com/alaincaron/ts-fluent-iterators-async#readme",
   "lint-staged": {
     "*.ts": [
       "eslint --fix",

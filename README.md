@@ -1,4 +1,4 @@
-# Typescript Fluent Iterators
+# Typescript Fluent Async Iterators
 
 Provides [fluent api](https://en.wikipedia.org/wiki/Fluent_interface)
 operations on async iterators and promise iterators.

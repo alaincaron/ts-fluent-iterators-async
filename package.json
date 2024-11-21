@@ -1,0 +1,81 @@
+{
+  "name": "ts-fluent-iterators",
+  "version": "13.0.5",
+  "description": "lazy fluent iterators",
+  "main": "./dist/index.js",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "test": "npm run build && mocha -r ts-node/register test/**/*.test.ts",
+    "pristine": "rimraf ./dist ./node_modules",
+    "build": "rimraf ./dist && tsc --declaration",
+    "repl": "npm run build && env NODE_PATH=./dist ts-node -i",
+    "htmldoc": "typedoc --plugin typedoc-material-theme src/index.ts --out htmldoc",
+    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
+    "coverage": "nyc npm run test",
+    "format": "prettier --write .",
+    "precommit": "lint-staged",
+    "prepare": "husky",
+    "typedoc": "typedoc --plugin typedoc-plugin-markdown src/index.ts --out docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alaincaron/ts-fluent-iterators.git"
+  },
+  "keywords": [
+    "lazy",
+    "iterator",
+    "typescript",
+    "fluent",
+    "async",
+    "promise"
+  ],
+  "author": "Alain Caron",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alaincaron/ts-fluent-iterators/issues"
+  },
+  "homepage": "https://github.com/alaincaron/ts-fluent-iterators#readme",
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.json": "prettier --write",
+    "*.js": "prettier --write",
+    "*.md": "prettier --write"
+  },
+  "devDependencies": {
+    "@types/chai": "^5.0.1",
+    "@types/mocha": "^10.0.10",
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "chai": "^4.3.10",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.31.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "mocha": "^10.8.2",
+    "nyc": "^17.1.0",
+    "prettier": "^3.3.3",
+    "pretty-quick": "^4.0.0",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typedoc": "^0.26.11",
+    "typedoc-material-theme": "^1.1.0",
+    "typedoc-plugin-markdown": "^4.2.10",
+    "typescript": "^5.6.3"
+  },
+  "types": "./dist/index.d.ts",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "ts-fluent-iterators": "^14.1.0"
+  }
+}

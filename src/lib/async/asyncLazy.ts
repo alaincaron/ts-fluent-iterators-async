@@ -1,4 +1,4 @@
-import { Lazy, Try, Mapper, Failure, Success } from 'ts-fluent-iterators';
+import { Failure, Lazy, Mapper, Success, Try } from 'ts-fluent-iterators';
 import { EventualMapper, EventualProvider } from '../utils';
 
 enum State {

@@ -1,5 +1,5 @@
-import * as PromiseIterators from '../promise/promiseIterators';
 import { Generators } from 'ts-fluent-iterators';
+import * as PromiseIterators from '../promise/promiseIterators';
 import { EventualMapper } from '../utils';
 
 export function range(start?: number, end?: number, step?: number): IterableIterator<Promise<number>> {

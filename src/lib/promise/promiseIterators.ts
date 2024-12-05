@@ -1,7 +1,7 @@
-import { ArrayCollector, Iterators as SyncIterators, IteratorGenerator } from 'ts-fluent-iterators';
+import { ArrayCollector, IteratorGenerator, Iterators as SyncIterators } from 'ts-fluent-iterators';
 import * as AsyncIterators from '../async/asyncIterators';
-import { Eventually, EventualMapper, EventualPredicate, EventualReducer } from '../utils';
 import { EventualCollector } from '../collectors';
+import { Eventually, EventualMapper, EventualPredicate, EventualReducer } from '../utils';
 
 export function* map<A, B>(iter: Iterator<Promise<A>>, mapper: EventualMapper<A, B>): IterableIterator<Promise<B>> {
   for (;;) {

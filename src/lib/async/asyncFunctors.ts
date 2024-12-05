@@ -1,5 +1,5 @@
+import { Functions, Functor } from 'ts-fluent-iterators';
 import * as AsyncFunctions from '../functions';
-import { Functor, Functions } from 'ts-fluent-iterators';
 import { Eventually, EventualMapper } from '../utils';
 
 export type EventualFunctorLike<T, R> = AsyncFunctor<T, R> | Functor<T, R> | EventualMapper<T, R>;

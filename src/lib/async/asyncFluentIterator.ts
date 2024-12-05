@@ -1,22 +1,23 @@
-import * as Iterators from './asyncIterators';
 import {
   ArrayCollector,
+  CollisionHandler,
+  Comparator,
   CountCollector,
   GroupByCollector,
   LastCollector,
   MapCollector,
+  Mapper,
   MaxCollector,
   MinCollector,
+  MinMax,
   MinMaxCollector,
   ObjectCollector,
   SetCollector,
   StringJoiner,
   TallyCollector,
-  CollisionHandler,
-  Comparator,
-  Mapper,
-  MinMax,
 } from 'ts-fluent-iterators';
+import * as Iterators from './asyncIterators';
+import { EventualCollector } from '../collectors';
 import {
   AsyncIteratorGenerator,
   EventualIterable,
@@ -26,8 +27,6 @@ import {
   EventualPredicate,
   EventualReducer,
 } from '../utils';
-
-import { EventualCollector } from '../collectors';
 
 /**
  * AsyncIterator with a Fluent interface.

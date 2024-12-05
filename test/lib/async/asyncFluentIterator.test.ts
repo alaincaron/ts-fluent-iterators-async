@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import { CollisionHandlers, Comparators, FlattenCollector } from 'ts-fluent-iterators';
 import {
   asyncEmptyIterator as empty,
   asyncIterator as iterator,
@@ -6,7 +7,6 @@ import {
 } from '../../../src/lib/async/asyncFluentIterator';
 import { range } from '../../../src/lib/async/asyncGenerators';
 import { first, map, toAsync } from '../../../src/lib/async/asyncIterators';
-import { FlattenCollector, Comparators, CollisionHandlers } from 'ts-fluent-iterators';
 import { predicateError } from '../helpers';
 
 describe('AsyncFluentIterator', () => {

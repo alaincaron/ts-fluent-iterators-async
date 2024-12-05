@@ -1,29 +1,29 @@
-import * as Iterators from './promiseIterators';
-import { AsyncFluentIterator } from '../async/asyncFluentIterator';
 import {
   ArrayCollector,
+  CollisionHandler,
+  Comparator,
   CountCollector,
   FluentIterator,
   GroupByCollector,
+  IteratorGenerator,
   LastCollector,
   MapCollector,
+  Mapper,
   MaxCollector,
   MinCollector,
+  MinMax,
   MinMaxCollector,
   ObjectCollector,
   SetCollector,
   StringJoiner,
-  TallyCollector,
   Iterators as SyncIterators,
-  CollisionHandler,
-  Comparator,
-  IteratorGenerator,
-  Mapper,
-  MinMax,
+  TallyCollector,
 } from 'ts-fluent-iterators';
+import * as Iterators from './promiseIterators';
+import { AsyncFluentIterator } from '../async/asyncFluentIterator';
 
-import { Eventually, EventualMapper, EventualPredicate, EventualReducer } from '../utils';
 import { EventualCollector } from '../collectors';
+import { Eventually, EventualMapper, EventualPredicate, EventualReducer } from '../utils';
 
 /**
  * Iterator yielding `Promise` objects with a Fluent interface.

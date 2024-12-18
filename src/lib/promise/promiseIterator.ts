@@ -34,7 +34,7 @@ export class PromiseIterator<A> implements Iterator<Promise<A>>, Iterable<Promis
    * Creates an {@link PromiseIterator} by wrapping an `Iterator<Promise<A>>`
    * @param iter The `Iterator` being wrapped into a `PromiseIterator`
    */
-  constructor(private readonly iter: Iterator<Promise<A>>) {}
+  constructor(protected readonly iter: Iterator<Promise<A>>) {}
 
   /**
    * Creates an empty {@link PromiseIterator}.  The returned iterator will not yield any element.

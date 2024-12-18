@@ -37,7 +37,7 @@ export class AsyncFluentIterator<A> implements AsyncIterator<A>, AsyncIterable<A
    * Creates an {@link AsyncFluentIterator} by wrapping an `AsyncIterator`
    * @param iter The `AsyncIterator` being wrapped into a `AsyncFluentIterator`
    */
-  constructor(private readonly iter: AsyncIterator<A>) {}
+  constructor(protected readonly iter: AsyncIterator<A>) {}
 
   /**
    * Creates an empty {@link AsyncFluentIterator}.  The returned iterator will not yield any element.

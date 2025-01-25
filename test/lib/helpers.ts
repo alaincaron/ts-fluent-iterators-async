@@ -4,7 +4,6 @@ import { EventualProvider } from '../../src';
 
 export async function shouldThrow(f: EventualProvider<unknown>, expectedError?: any) {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     await f();
     assert.fail('Should have thrown.');
   } catch (err) {
@@ -13,7 +12,6 @@ export async function shouldThrow(f: EventualProvider<unknown>, expectedError?: 
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(expectedError(err)).to.be.true;
       } else {
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(err).equal(expectedError);
       }
     }

@@ -54,10 +54,13 @@ describe('PromiseIterator', () => {
       expect(await iterator(range(1, 10)).race()).to.equal(1);
     });
     it('should throw', async () => {
+      const e = new Error();
       try {
-        await iterator([Promise.reject(), Promise.resolve(1)]).race();
+        await iterator([Promise.reject(e), Promise.resolve(1)]).race();
         assert.fail('race should have trown');
-      } catch (_err) {}
+      } catch (err) {
+        expect(err).to.equal(e);
+      }
     });
     it('should return undefined on empty iterator', async () => {
       expect(await empty().race()).to.be.undefined;

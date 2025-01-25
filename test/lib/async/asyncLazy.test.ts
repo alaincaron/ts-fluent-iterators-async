@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import { asyncLazy } from '../../../src';
 import { Either, Failure, Maybe, None, Try } from 'ts-fluent-iterators';
+import { asyncLazy } from '../../../src';
 import { providerError, shouldThrow } from '../helpers';
 
 describe('AsyncLazy', () => {

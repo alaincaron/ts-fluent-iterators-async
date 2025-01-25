@@ -1,5 +1,5 @@
 import { assert, expect } from 'chai';
-import { FlattenCollector, Comparators, CollisionHandlers } from 'ts-fluent-iterators';
+import { CollisionHandlers, Comparators, FlattenCollector } from 'ts-fluent-iterators';
 import { range } from '../../../src/lib/promise/promiseGenerators';
 import {
   promiseEmptyIterator as empty,

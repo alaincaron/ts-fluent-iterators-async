@@ -1,6 +1,6 @@
 {
   "name": "ts-fluent-iterators-async",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "lazy fluent async iterators",
   "main": "./dist/index.js",
   "engines": {

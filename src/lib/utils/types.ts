@@ -1,4 +1,4 @@
-import { Mapper, IteratorGenerator } from 'ts-fluent-iterators';
+import { IteratorGenerator, Mapper } from 'ts-fluent-iterators';
 
 /**
  * Represents a value of type `A` or `Promise<A>`.

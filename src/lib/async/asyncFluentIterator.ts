@@ -1,22 +1,23 @@
-import * as Iterators from './asyncIterators';
 import {
   ArrayCollector,
+  CollisionHandler,
+  Comparator,
   CountCollector,
   GroupByCollector,
   LastCollector,
   MapCollector,
+  Mapper,
   MaxCollector,
   MinCollector,
+  MinMax,
   MinMaxCollector,
   ObjectCollector,
   SetCollector,
   StringJoiner,
   TallyCollector,
-  CollisionHandler,
-  Comparator,
-  Mapper,
-  MinMax,
 } from 'ts-fluent-iterators';
+import * as Iterators from './asyncIterators';
+import { EventualCollector } from '../collectors';
 import {
   AsyncIteratorGenerator,
   EventualIterable,
@@ -27,8 +28,6 @@ import {
   EventualReducer,
 } from '../utils';
 
-import { EventualCollector } from '../collectors';
-
 /**
  * AsyncIterator with a Fluent interface.
  * @typeParam A The type of elements being iterated.
@@ -38,7 +37,7 @@ export class AsyncFluentIterator<A> implements AsyncIterator<A>, AsyncIterable<A
    * Creates an {@link AsyncFluentIterator} by wrapping an `AsyncIterator`
    * @param iter The `AsyncIterator` being wrapped into a `AsyncFluentIterator`
    */
-  constructor(private readonly iter: AsyncIterator<A>) {}
+  constructor(protected readonly iter: AsyncIterator<A>) {}
 
   /**
    * Creates an empty {@link AsyncFluentIterator}.  The returned iterator will not yield any element.

@@ -1,5 +1,5 @@
-import { EventualCollector } from '../collectors';
 import { Iterators } from 'ts-fluent-iterators';
+import { EventualCollector } from '../collectors';
 import {
   AsyncArrayGenerator,
   AsyncIteratorGenerator,

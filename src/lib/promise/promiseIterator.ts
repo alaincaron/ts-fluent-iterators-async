@@ -1,29 +1,29 @@
-import * as Iterators from './promiseIterators';
-import { AsyncFluentIterator } from '../async/asyncFluentIterator';
 import {
   ArrayCollector,
+  CollisionHandler,
+  Comparator,
   CountCollector,
   FluentIterator,
   GroupByCollector,
+  IteratorGenerator,
   LastCollector,
   MapCollector,
+  Mapper,
   MaxCollector,
   MinCollector,
+  MinMax,
   MinMaxCollector,
   ObjectCollector,
   SetCollector,
   StringJoiner,
-  TallyCollector,
   Iterators as SyncIterators,
-  CollisionHandler,
-  Comparator,
-  IteratorGenerator,
-  Mapper,
-  MinMax,
+  TallyCollector,
 } from 'ts-fluent-iterators';
+import * as Iterators from './promiseIterators';
+import { AsyncFluentIterator } from '../async/asyncFluentIterator';
 
-import { Eventually, EventualMapper, EventualPredicate, EventualReducer } from '../utils';
 import { EventualCollector } from '../collectors';
+import { Eventually, EventualMapper, EventualPredicate, EventualReducer } from '../utils';
 
 /**
  * Iterator yielding `Promise` objects with a Fluent interface.
@@ -34,7 +34,7 @@ export class PromiseIterator<A> implements Iterator<Promise<A>>, Iterable<Promis
    * Creates an {@link PromiseIterator} by wrapping an `Iterator<Promise<A>>`
    * @param iter The `Iterator` being wrapped into a `PromiseIterator`
    */
-  constructor(private readonly iter: Iterator<Promise<A>>) {}
+  constructor(protected readonly iter: Iterator<Promise<A>>) {}
 
   /**
    * Creates an empty {@link PromiseIterator}.  The returned iterator will not yield any element.

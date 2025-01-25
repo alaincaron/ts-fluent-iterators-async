@@ -1,5 +1,5 @@
-import * as AsyncIterators from './asyncIterators';
 import { Generators } from 'ts-fluent-iterators';
+import * as AsyncIterators from './asyncIterators';
 import { EventualMapper } from '../utils';
 
 /**

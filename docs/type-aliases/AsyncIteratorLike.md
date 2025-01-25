@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../README.md)
 
 ---
 
-[ts-fluent-iterators](../README.md) / AsyncIteratorLike
+[ts-fluent-iterators-async](../README.md) / AsyncIteratorLike
 
 # Type Alias: AsyncIteratorLike\<E\>
 

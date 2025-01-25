@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../README.md)
 
 ---
 
-[ts-fluent-iterators](../README.md) / AsyncLazy
+[ts-fluent-iterators-async](../README.md) / AsyncLazy
 
 # Class: AsyncLazy\<T\>
 
@@ -29,7 +29,9 @@ Maps the computed value to a new value using the provided function.
 
 #### Parameters
 
-• **mapper**: [`EventualMapper`](../type-aliases/EventualMapper.md)\<`T`, `R`\>
+##### mapper
+
+[`EventualMapper`](../type-aliases/EventualMapper.md)\<`T`, `R`\>
 
 The function to apply to the computed value.
 
@@ -73,7 +75,9 @@ The type of the value.
 
 #### Parameters
 
-• **provider**: [`EventualProvider`](../type-aliases/EventualProvider.md)\<`T` \| `Try`\<`T`\>\>
+##### provider
+
+[`EventualProvider`](../type-aliases/EventualProvider.md)\<`T` \| `Try`\<`T`\>\>
 
 The function representing the lazy provider.
 

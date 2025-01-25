@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../README.md)
 
 ---
 
-[ts-fluent-iterators](../README.md) / promiseSingletonIterator
+[ts-fluent-iterators-async](../README.md) / promiseSingletonIterator
 
 # Function: promiseSingletonIterator()
 
@@ -16,7 +16,9 @@ Alias for [PromiseIterator.singleton](../classes/PromiseIterator.md#singleton)
 
 ## Parameters
 
-• **a**: [`Eventually`](../type-aliases/Eventually.md)\<`A`\>
+### a
+
+[`Eventually`](../type-aliases/Eventually.md)\<`A`\>
 
 ## Returns
 

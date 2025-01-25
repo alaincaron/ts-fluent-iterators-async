@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../../../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../../../README.md)
 
 ---
 
-[ts-fluent-iterators](../../../README.md) / [AsyncGenerators](../README.md) / loop
+[ts-fluent-iterators-async](../../../README.md) / [AsyncGenerators](../README.md) / loop
 
 # Function: loop()
 
@@ -17,19 +17,27 @@ from `start` (inclusively) to `end` (exclusively) by increment of `step`.
 
 ## Parameters
 
-• **f**: [`EventualMapper`](../../../type-aliases/EventualMapper.md)\<`number`, `T`\>
+### f
+
+[`EventualMapper`](../../../type-aliases/EventualMapper.md)\<`number`, `T`\>
 
 The function to apply on each element of the range.
 
-• **start?**: `number`
+### start?
+
+`number`
 
 the start of the range. Defaults to 0.
 
-• **end?**: `number`
+### end?
+
+`number`
 
 the end of the range. Defaults to infinity.
 
-• **step?**: `number`
+### step?
+
+`number`
 
 increment in the range. Defaults to 1 if `end` > `start`, -1 otherwise.
 

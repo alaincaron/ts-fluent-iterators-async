@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../README.md)
 
 ---
 
-[ts-fluent-iterators](../README.md) / PromiseIterator
+[ts-fluent-iterators-async](../README.md) / PromiseIterator
 
 # Class: PromiseIterator\<A\>
 
@@ -29,7 +29,9 @@ Creates an [PromiseIterator](PromiseIterator.md) by wrapping an `Iterator<Promis
 
 #### Parameters
 
-• **iter**: `Iterator`\<`Promise`\<`A`\>, `any`, `any`\>
+##### iter
+
+`Iterator`\<`Promise`\<`A`\>\>
 
 The `Iterator` being wrapped into a `PromiseIterator`
 
@@ -41,7 +43,7 @@ The `Iterator` being wrapped into a `PromiseIterator`
 
 ### \[iterator\]()
 
-> **\[iterator\]**(): `Iterator`\<`Promise`\<`A`\>, `any`, `any`\>
+> **\[iterator\]**(): `Iterator`\<`Promise`\<`A`\>\>
 
 Used to make this [PromiseIterator](PromiseIterator.md) being seen as an
 `Iterable<Promise<A>>`. This allows them to be used in APIs expecting an
@@ -49,7 +51,7 @@ Used to make this [PromiseIterator](PromiseIterator.md) being seen as an
 
 #### Returns
 
-`Iterator`\<`Promise`\<`A`\>, `any`, `any`\>
+`Iterator`\<`Promise`\<`A`\>\>
 
 #### Implementation of
 
@@ -67,7 +69,9 @@ otherwsie.
 
 #### Parameters
 
-• **predicate**: [`EventualPredicate`](../type-aliases/EventualPredicate.md)\<`A`\>
+##### predicate
+
+[`EventualPredicate`](../type-aliases/EventualPredicate.md)\<`A`\>
 
 The predicate being evaluated
 
@@ -117,9 +121,11 @@ Returns a new [PromiseIterator](PromiseIterator.md) that is the result of append
 
 #### Parameters
 
-• **items**: `Iterator`\<`Promise`\<`A`\>, `any`, `any`\> \| `Iterable`\<`Promise`\<`A`\>, `any`, `any`\>
+##### items
 
 An `Iterator` or `Iterable` whose items are appended to this [PromiseIterator](PromiseIterator.md).
+
+`Iterator`\<`Promise`\<`A`\>\> | `Iterable`\<`Promise`\<`A`\>\>
 
 #### Returns
 
@@ -147,7 +153,9 @@ This method allows to use an Iterator function in a fluent way.
 
 #### Parameters
 
-• **mapper**: `Mapper`\<`Iterator`\<`Promise`\<`A`\>, `any`, `any`\>, [`Eventually`](../type-aliases/Eventually.md)\<`B`\>\>
+##### mapper
+
+`Mapper`\<`Iterator`\<`Promise`\<`A`\>\>, [`Eventually`](../type-aliases/Eventually.md)\<`B`\>\>
 
 #### Returns
 
@@ -211,7 +219,9 @@ The result type of the `EventualCollector`.
 
 #### Parameters
 
-• **collector**: [`EventualCollector`](../interfaces/EventualCollector.md)\<`A`, `B`\>
+##### collector
+
+[`EventualCollector`](../interfaces/EventualCollector.md)\<`A`, `B`\>
 
 The `EventualCollector` into which to collect the items
 
@@ -246,11 +256,15 @@ The type of the keys of the `Map`
 
 #### Parameters
 
-• **mapper**: [`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `K`\>
+##### mapper
+
+[`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `K`\>
 
 Maps the values into keys
 
-• **collisionHandler?**: `CollisionHandler`\<`K`, `A`\>
+##### collisionHandler?
+
+`CollisionHandler`\<`K`, `A`\>
 
 Specifies how to handle the collision. Default is to ignore collision.
 
@@ -288,11 +302,15 @@ The type of the values of the `Map`
 
 #### Parameters
 
-• **mapper**: [`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, [`K`, `V`]\>
+##### mapper
+
+[`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, \[`K`, `V`\]\>
 
 Maps the values into [key, values] pairs
 
-• **collisionHandler?**: `CollisionHandler`\<`K`, `V`\>
+##### collisionHandler?
+
+`CollisionHandler`\<`K`, `V`\>
 
 Specifies how to handle the collision. Default is to ignore collision.
 
@@ -320,11 +338,15 @@ Collects items into a `Record` by mapping values into keys.
 
 #### Parameters
 
-• **mapper**: [`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `string`\>
+##### mapper
+
+[`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `string`\>
 
 Maps the values into keys
 
-• **collisionHander?**: `CollisionHandler`\<`string`, `A`\>
+##### collisionHander?
+
+`CollisionHandler`\<`string`, `A`\>
 
 #### Returns
 
@@ -356,11 +378,15 @@ The type of the values of the `Map`
 
 #### Parameters
 
-• **mapper**: [`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, [`string`, `V`]\>
+##### mapper
+
+[`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, \[`string`, `V`\]\>
 
 Maps the values into [key, values] pairs
 
-• **collisionHandler?**: `CollisionHandler`\<`string`, `V`\>
+##### collisionHandler?
+
+`CollisionHandler`\<`string`, `V`\>
 
 Specifies how to handle the collision. Default is to ignore collision.
 
@@ -410,7 +436,9 @@ Returns a new [PromiseIterator](PromiseIterator.md) that is the result of apepen
 
 #### Parameters
 
-• ...**iterables**: (`Iterator`\<`Promise`\<`A`\>, `any`, `any`\> \| `Iterable`\<`Promise`\<`A`\>, `any`, `any`\>)[]
+##### iterables
+
+...(`Iterator`\<`Promise`\<`A`\>\> \| `Iterable`\<`Promise`\<`A`\>\>)[]
 
 An `Array of `Iterator`or`Iterable` whose items are appended to this FluentIterator.
 
@@ -437,7 +465,9 @@ evaluates to true.
 
 #### Parameters
 
-• **predicate**: [`EventualPredicate`](../type-aliases/EventualPredicate.md)\<`A`\>
+##### predicate
+
+[`EventualPredicate`](../type-aliases/EventualPredicate.md)\<`A`\>
 
 The predicate to evaluate.
 
@@ -483,7 +513,9 @@ Returns a new [AsyncFluentIterator](AsyncFluentIterator.md) consisting of distin
 
 #### Parameters
 
-• **mapper?**: [`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `K`\>
+##### mapper?
+
+[`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `K`\>
 
 Used to determine distinctness of elements. Default to <code>identity</code>
 
@@ -505,7 +537,7 @@ await promiseIterator (toPromise[1,2,2,3,1,4]), x => x %2).distinct().collect();
 
 ### enumerate()
 
-> **enumerate**(`start`): [`PromiseIterator`](PromiseIterator.md)\<[`A`, `number`]\>
+> **enumerate**(`start`): [`PromiseIterator`](PromiseIterator.md)\<\[`A`, `number`\]\>
 
 Returns a new [PromiseIterator](PromiseIterator.md) that yields pairs of elements
 consisting of the elements yielded by this
@@ -513,13 +545,15 @@ consisting of the elements yielded by this
 
 #### Parameters
 
-• **start**: `number` = `0`
+##### start
+
+`number` = `0`
 
 The starting index
 
 #### Returns
 
-[`PromiseIterator`](PromiseIterator.md)\<[`A`, `number`]\>
+[`PromiseIterator`](PromiseIterator.md)\<\[`A`, `number`\]\>
 
 #### Example
 
@@ -539,7 +573,9 @@ Returns a new [AsyncFluentIterator](AsyncFluentIterator.md) consisting of elemen
 
 #### Parameters
 
-• **predicate**: [`EventualPredicate`](../type-aliases/EventualPredicate.md)\<`A`\>
+##### predicate
+
+[`EventualPredicate`](../type-aliases/EventualPredicate.md)\<`A`\>
 
 the predicate on which the evaluate the items.
 
@@ -575,7 +611,9 @@ The type of the elements of the returned [AsyncFluentIterator](AsyncFluentIterat
 
 #### Parameters
 
-• **mapper**: [`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `undefined` \| `null` \| `B`\>
+##### mapper
+
+[`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `undefined` \| `null` \| `B`\>
 
 Transformation applied to elements of this [PromiseIterator](PromiseIterator.md)
 
@@ -625,7 +663,9 @@ Returns a new [PromiseIterator](PromiseIterator.md) for [EventualMapper](../type
 
 #### Parameters
 
-• **mapper**: [`EventualMapper`](../type-aliases/EventualMapper.md)\<`Promise`\<`A`\>, `B`\>
+##### mapper
+
+[`EventualMapper`](../type-aliases/EventualMapper.md)\<`Promise`\<`A`\>, `B`\>
 
 [EventualMapper](../type-aliases/EventualMapper.md) accepting a `Promise<A>`
 
@@ -659,11 +699,15 @@ is a single value.
 
 #### Parameters
 
-• **reducer**: [`EventualReducer`](../type-aliases/EventualReducer.md)\<`A`, `B`\>
+##### reducer
+
+[`EventualReducer`](../type-aliases/EventualReducer.md)\<`A`, `B`\>
 
 The reducer to be applied at each iteration.
 
-• **initialValue**: `B`
+##### initialValue
+
+`B`
 
 The value of the accumulator to be used in the first call to `reducer`
 
@@ -698,7 +742,9 @@ Applies the [mapper](../type-aliases/EventualMapper.md) to each element of this 
 
 #### Parameters
 
-• **mapper**: [`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `any`\>
+##### mapper
+
+[`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `any`\>
 
 the operation to be invoked on each element.
 
@@ -738,7 +784,9 @@ the elements that are mapped to the same key.
 
 #### Parameters
 
-• **mapper**: [`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `K`\>
+##### mapper
+
+[`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `K`\>
 
 The [EventualMapper](../type-aliases/EventualMapper.md) used to group items.
 
@@ -770,7 +818,9 @@ this [PromiseIterator](PromiseIterator.md),
 
 #### Parameters
 
-• **mapper**: [`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, [`K`, `V`]\>
+##### mapper
+
+[`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, \[`K`, `V`\]\>
 
 The [EventualMapper](../type-aliases/EventualMapper.md) used to group items.
 
@@ -795,7 +845,9 @@ Returns true if this [PromiseIterator](PromiseIterator.md) yields an element equ
 
 #### Parameters
 
-• **target**: [`Eventually`](../type-aliases/Eventually.md)\<`A`\>
+##### target
+
+[`Eventually`](../type-aliases/Eventually.md)\<`A`\>
 
 value to look for
 
@@ -828,15 +880,21 @@ Joins items of this [PromiseIterator](PromiseIterator.md) into a string.
 
 #### Parameters
 
-• **separator?**: `string`
+##### separator?
+
+`string`
 
 string used to delimite elements
 
-• **prefix?**: `string`
+##### prefix?
+
+`string`
 
 string used to prefix the resulting string
 
-• **suffix?**: `string`
+##### suffix?
+
+`string`
 
 #### Returns
 
@@ -891,7 +949,9 @@ The type of the elements of the returned [PromiseIterator](PromiseIterator.md)
 
 #### Parameters
 
-• **mapper**: [`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `B`\>
+##### mapper
+
+[`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `B`\>
 
 Transformation applied to elements of this [PromiseIterator](PromiseIterator.md)
 
@@ -915,11 +975,13 @@ iter.map(s => s.length)
 
 > **max**(`comparator`?): `Promise`\<`undefined` \| `A`\>
 
-Returns the maximum element according to the argument Comparator | comparator.
+Returns the maximum element according to the argument Comparator \| comparator.
 
 #### Parameters
 
-• **comparator?**: `Comparator`\<`A`\>
+##### comparator?
+
+`Comparator`\<`A`\>
 
 #### Returns
 
@@ -943,11 +1005,13 @@ await PromiseIterator.empty().max(); // undefined
 
 > **min**(`comparator`?): `Promise`\<`undefined` \| `A`\>
 
-Returns the minimum element according to the argument Comparator | comparator.
+Returns the minimum element according to the argument Comparator \| comparator.
 
 #### Parameters
 
-• **comparator?**: `Comparator`\<`A`\>
+##### comparator?
+
+`Comparator`\<`A`\>
 
 The {link Comparator} used to order the elements.
 
@@ -976,11 +1040,13 @@ await PrommiseIterator.empty().min();
 
 > **minmax**(`comparator`?): `Promise`\<`undefined` \| `MinMax`\<`A`\>\>
 
-Returns the minimum and maximum element according to the argument Comparator | comparator.
+Returns the minimum and maximum element according to the argument Comparator \| comparator.
 
 #### Parameters
 
-• **comparator?**: `Comparator`\<`A`\>
+##### comparator?
+
+`Comparator`\<`A`\>
 
 #### Returns
 
@@ -1028,7 +1094,9 @@ partitions (arrays) of at most `size` elements.
 
 #### Parameters
 
-• **size**: `number`
+##### size
+
+`number`
 
 The size of the partitions.
 
@@ -1058,9 +1126,11 @@ Returns a new [PromiseIterator](PromiseIterator.md) that is the result of prepen
 
 #### Parameters
 
-• **items**: `Iterator`\<`Promise`\<`A`\>, `any`, `any`\> \| `Iterable`\<`Promise`\<`A`\>, `any`, `any`\>
+##### items
 
 An `Iterator` or `Iterable` whose items are prepended to this [PromiseIterator](PromiseIterator.md).
+
+`Iterator`\<`Promise`\<`A`\>\> | `Iterable`\<`Promise`\<`A`\>\>
 
 #### Returns
 
@@ -1095,11 +1165,15 @@ Special case of [PromiseIterator.fold](PromiseIterator.md#fold) where items bein
 
 #### Parameters
 
-• **reducer**: [`EventualReducer`](../type-aliases/EventualReducer.md)\<`A`, `A`\>
+##### reducer
+
+[`EventualReducer`](../type-aliases/EventualReducer.md)\<`A`, `A`\>
 
 The reducer to be applied at each iteration.
 
-• **initialValue?**: [`Eventually`](../type-aliases/Eventually.md)\<`A`\>
+##### initialValue?
+
+[`Eventually`](../type-aliases/Eventually.md)\<`A`\>
 
 The value of the accumulator to be used in the first call to `reducer`. If omitted, the first element of this [PromiseIterator](PromiseIterator.md) is used.
 
@@ -1144,7 +1218,9 @@ Returns a [PromiseIterator](PromiseIterator.md) skipping the first `n` elements 
 
 #### Parameters
 
-• **n**: `number`
+##### n
+
+`number`
 
 The number of elements to skip
 
@@ -1170,7 +1246,9 @@ evaluates to `true` and yields the subsequent ones.
 
 #### Parameters
 
-• **predicate**: [`EventualPredicate`](../type-aliases/EventualPredicate.md)\<`A`\>
+##### predicate
+
+[`EventualPredicate`](../type-aliases/EventualPredicate.md)\<`A`\>
 
 The predicate being evaluated
 
@@ -1197,7 +1275,9 @@ false otherwsie.
 
 #### Parameters
 
-• **predicate**: [`EventualPredicate`](../type-aliases/EventualPredicate.md)\<`A`\>
+##### predicate
+
+[`EventualPredicate`](../type-aliases/EventualPredicate.md)\<`A`\>
 
 The predicate being evaluated
 
@@ -1223,7 +1303,9 @@ Returns a [PromiseIterator](PromiseIterator.md) yielding the first `n` elements 
 
 #### Parameters
 
-• **n**: `number`
+##### n
+
+`number`
 
 The number of elements to take
 
@@ -1247,7 +1329,9 @@ Returns a new [AsyncFluentIterator](AsyncFluentIterator.md) that yields elements
 
 #### Parameters
 
-• **predicate**: [`EventualPredicate`](../type-aliases/EventualPredicate.md)\<`A`\>
+##### predicate
+
+[`EventualPredicate`](../type-aliases/EventualPredicate.md)\<`A`\>
 
 The predicate being evaluated
 
@@ -1294,7 +1378,9 @@ and executes the [mapper](../type-aliases/EventualMapper.md) on each element.
 
 #### Parameters
 
-• **mapper**: [`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `any`\>
+##### mapper
+
+[`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `any`\>
 
 the operation to be invoked on each element.
 
@@ -1338,7 +1424,9 @@ This method allows to extends the class FluentIterator using `Iterator` transfor
 
 #### Parameters
 
-• **mapper**: `Mapper`\<`Iterator`\<`Promise`\<`A`\>, `any`, `any`\>, `Iterator`\<`Promise`\<`B`\>, `any`, `any`\>\>
+##### mapper
+
+`Mapper`\<`Iterator`\<`Promise`\<`A`\>\>, `Iterator`\<`Promise`\<`B`\>\>\>
 
 #### Returns
 
@@ -1362,7 +1450,7 @@ await iterator([1,2,3]).toPromise().transform(doublePromiseIterator).collect()
 
 ### zip()
 
-> **zip**\<`B`\>(`other`): [`PromiseIterator`](PromiseIterator.md)\<[`A`, `B`]\>
+> **zip**\<`B`\>(`other`): [`PromiseIterator`](PromiseIterator.md)\<\[`A`, `B`\]\>
 
 Returns a new [PromiseIterator](PromiseIterator.md) that yields pairs of elements
 yielded by each Iterators which are navigated in parallel.
@@ -1376,13 +1464,15 @@ The type of elements of the `other` iterator.
 
 #### Parameters
 
-• **other**: `Iterator`\<`Promise`\<`B`\>, `any`, `any`\> \| `Iterable`\<`Promise`\<`B`\>, `any`, `any`\>
+##### other
 
 The iterator that is combined with this one.
 
+`Iterator`\<`Promise`\<`B`\>\> | `Iterable`\<`Promise`\<`B`\>\>
+
 #### Returns
 
-[`PromiseIterator`](PromiseIterator.md)\<[`A`, `B`]\>
+[`PromiseIterator`](PromiseIterator.md)\<\[`A`, `B`\]\>
 
 #### Example
 
@@ -1428,7 +1518,9 @@ the type of elements
 
 #### Parameters
 
-• **generator**: `IteratorGenerator`\<`Promise`\<`A`\>\>
+##### generator
+
+`IteratorGenerator`\<`Promise`\<`A`\>\>
 
 Used to generate an `AsyncIterator` that will be wrapped into a `PromiseIterator`
 
@@ -1458,7 +1550,9 @@ the type of elements of the `PromiseIterator`.
 
 #### Parameters
 
-• **a**: [`Eventually`](../type-aliases/Eventually.md)\<`A`\>
+##### a
+
+[`Eventually`](../type-aliases/Eventually.md)\<`A`\>
 
 #### Returns
 

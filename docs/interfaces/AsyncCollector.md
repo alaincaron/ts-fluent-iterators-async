@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../README.md)
 
 ---
 
-[ts-fluent-iterators](../README.md) / AsyncCollector
+[ts-fluent-iterators-async](../README.md) / AsyncCollector
 
 # Interface: AsyncCollector\<A, B\>
 
@@ -44,7 +44,9 @@ Collects an element.
 
 #### Parameters
 
-• **a**: `A`
+##### a
+
+`A`
 
 The element being collected.
 

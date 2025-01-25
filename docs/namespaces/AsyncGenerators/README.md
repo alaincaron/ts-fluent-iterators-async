@@ -1,14 +1,12 @@
-[**ts-fluent-iterators**](../../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../../README.md)
 
 ---
 
-[ts-fluent-iterators](../../README.md) / AsyncGenerators
+[ts-fluent-iterators-async](../../README.md) / AsyncGenerators
 
 # AsyncGenerators
 
-## Index
-
-### Functions
+## Functions
 
 - [loop](functions/loop.md)
 - [range](functions/range.md)

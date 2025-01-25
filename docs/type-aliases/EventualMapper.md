@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../README.md)
 
 ---
 
-[ts-fluent-iterators](../README.md) / EventualMapper
+[ts-fluent-iterators-async](../README.md) / EventualMapper
 
 # Type Alias: EventualMapper\<A, B\>
 

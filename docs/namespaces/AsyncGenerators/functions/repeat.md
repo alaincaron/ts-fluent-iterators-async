@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../../../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../../../README.md)
 
 ---
 
-[ts-fluent-iterators](../../../README.md) / [AsyncGenerators](../README.md) / repeat
+[ts-fluent-iterators-async](../../../README.md) / [AsyncGenerators](../README.md) / repeat
 
 # Function: repeat()
 
@@ -17,11 +17,15 @@ from `start` (inclusively) to `end` (exclusively) by increment of `step`.
 
 ## Parameters
 
-• **f**: [`EventualMapper`](../../../type-aliases/EventualMapper.md)\<`number`, `T`\>
+### f
+
+[`EventualMapper`](../../../type-aliases/EventualMapper.md)\<`number`, `T`\>
 
 The function to apply on each element of the range.
 
-• **count?**: `number`
+### count?
+
+`number`
 
 the numbe of times f should be invoked.
 

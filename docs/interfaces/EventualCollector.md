@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../README.md)
 
 ---
 
-[ts-fluent-iterators](../README.md) / EventualCollector
+[ts-fluent-iterators-async](../README.md) / EventualCollector
 
 # Interface: EventualCollector\<A, B\>
 
@@ -24,7 +24,9 @@ Collects an element.
 
 #### Parameters
 
-• **a**: `A`
+##### a
+
+`A`
 
 The element being collected.
 

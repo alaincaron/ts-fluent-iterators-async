@@ -1,8 +1,8 @@
-**ts-fluent-iterators** • **Docs**
+**ts-fluent-iterators-async**
 
 ---
 
-# ts-fluent-iterators
+# ts-fluent-iterators-async
 
 ## Namespaces
 

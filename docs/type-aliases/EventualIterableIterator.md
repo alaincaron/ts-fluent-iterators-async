@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../README.md)
 
 ---
 
-[ts-fluent-iterators](../README.md) / EventualIterableIterator
+[ts-fluent-iterators-async](../README.md) / EventualIterableIterator
 
 # Type Alias: EventualIterableIterator\<A\>
 

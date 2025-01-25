@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../README.md)
 
 ---
 
-[ts-fluent-iterators](../README.md) / asyncSingletonIterator
+[ts-fluent-iterators-async](../README.md) / asyncSingletonIterator
 
 # Function: asyncSingletonIterator()
 
@@ -16,7 +16,9 @@ Alias for AsyncFluentiterator.singleton
 
 ## Parameters
 
-• **a**: `A`
+### a
+
+`A`
 
 ## Returns
 

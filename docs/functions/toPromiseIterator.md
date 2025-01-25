@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../README.md)
 
 ---
 
-[ts-fluent-iterators](../README.md) / toPromiseIterator
+[ts-fluent-iterators-async](../README.md) / toPromiseIterator
 
 # Function: toPromiseIterator()
 
@@ -16,7 +16,9 @@ Helper function to create a [PromiseIterator](../classes/PromiseIterator.md) fro
 
 ## Parameters
 
-• **generator**: `IteratorGenerator`\<`A`\>
+### generator
+
+`IteratorGenerator`\<`A`\>
 
 ## Returns
 

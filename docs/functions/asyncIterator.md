@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../README.md)
 
 ---
 
-[ts-fluent-iterators](../README.md) / asyncIterator
+[ts-fluent-iterators-async](../README.md) / asyncIterator
 
 # Function: asyncIterator()
 
@@ -16,7 +16,9 @@ Alias for [AsyncFluentIterator.from](../classes/AsyncFluentIterator.md#from)
 
 ## Parameters
 
-• **generator**: [`AsyncIteratorGenerator`](../type-aliases/AsyncIteratorGenerator.md)\<`A`\>
+### generator
+
+[`AsyncIteratorGenerator`](../type-aliases/AsyncIteratorGenerator.md)\<`A`\>
 
 ## Returns
 

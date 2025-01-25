@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../README.md)
 
 ---
 
-[ts-fluent-iterators](../README.md) / promiseIterator
+[ts-fluent-iterators-async](../README.md) / promiseIterator
 
 # Function: promiseIterator()
 
@@ -16,7 +16,9 @@ Alias for [PromiseIterator.from](../classes/PromiseIterator.md#from)
 
 ## Parameters
 
-• **generator**: `IteratorGenerator`\<`Promise`\<`A`\>\>
+### generator
+
+`IteratorGenerator`\<`Promise`\<`A`\>\>
 
 ## Returns
 

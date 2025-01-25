@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../../../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../../../README.md)
 
 ---
 
-[ts-fluent-iterators](../../../README.md) / [AsyncGenerators](../README.md) / range
+[ts-fluent-iterators-async](../../../README.md) / [AsyncGenerators](../README.md) / range
 
 # Function: range()
 
@@ -12,15 +12,21 @@ Returns an `AsyncIterableiterator` from `start` (inclusively) to `end` (exclusiv
 
 ## Parameters
 
-• **start?**: `number`
+### start?
+
+`number`
 
 the start of the range. Defaults to 0.
 
-• **end?**: `number`
+### end?
+
+`number`
 
 the end of the range. Defaults to infinity.
 
-• **step?**: `number`
+### step?
+
+`number`
 
 increment in the range. Defaults to 1 if `end` > `start`, -1 otherwise.
 

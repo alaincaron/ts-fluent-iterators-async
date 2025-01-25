@@ -1,8 +1,8 @@
-[**ts-fluent-iterators**](../README.md) • **Docs**
+[**ts-fluent-iterators-async**](../README.md)
 
 ---
 
-[ts-fluent-iterators](../README.md) / EventualBinaryMapper
+[ts-fluent-iterators-async](../README.md) / EventualBinaryMapper
 
 # Type Alias: EventualBinaryMapper()\<A, B, C\>
 
@@ -24,9 +24,13 @@ the type of the second operand
 
 ## Parameters
 
-• **a**: `A`
+### a
 
-• **b**: `B`
+`A`
+
+### b
+
+`B`
 
 ## Returns
 

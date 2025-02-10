@@ -39,6 +39,14 @@ The `AsyncIterator` being wrapped into a `AsyncFluentIterator`
 
 [`AsyncFluentIterator`](AsyncFluentIterator.md)\<`A`\>
 
+## Properties
+
+### iter
+
+> `protected` `readonly` **iter**: `AsyncIterator`\<`A`\>
+
+The `AsyncIterator` being wrapped into a `AsyncFluentIterator`
+
 ## Methods
 
 ### \[asyncIterator\]()
@@ -131,7 +139,7 @@ This method allows to use an Iterator function in a fluent way.
 
 ##### mapper
 
-[`EventualMapper`](../type-aliases/EventualMapper.md)\<`AsyncIterator`\<`A`\>, `B`\>
+[`EventualMapper`](../type-aliases/EventualMapper.md)\<`AsyncIterator`\<`A`, `any`, `any`\>, `B`\>
 
 #### Returns
 
@@ -1356,7 +1364,7 @@ This method allows to extends the class FluentIterator using `Iterator` transfor
 
 ##### mapper
 
-`Mapper`\<`AsyncIterator`\<`A`\>, `AsyncIterator`\<`B`\>\>
+`Mapper`\<`AsyncIterator`\<`A`, `any`, `any`\>, `AsyncIterator`\<`B`, `any`, `any`\>\>
 
 #### Returns
 
@@ -1398,7 +1406,7 @@ The type of elements of the `other` iterator.
 
 The iterator that is combined with this one.
 
-`AsyncIterator`\<`B`\> | `AsyncIterable`\<`B`\>
+`AsyncIterator`\<`B`, `any`, `any`\> | `AsyncIterable`\<`B`, `any`, `any`\>
 
 #### Returns
 

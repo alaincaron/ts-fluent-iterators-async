@@ -39,6 +39,14 @@ The `Iterator` being wrapped into a `PromiseIterator`
 
 [`PromiseIterator`](PromiseIterator.md)\<`A`\>
 
+## Properties
+
+### iter
+
+> `protected` `readonly` **iter**: `Iterator`\<`Promise`\<`A`\>\>
+
+The `Iterator` being wrapped into a `PromiseIterator`
+
 ## Methods
 
 ### \[iterator\]()
@@ -125,7 +133,7 @@ Returns a new [PromiseIterator](PromiseIterator.md) that is the result of append
 
 An `Iterator` or `Iterable` whose items are appended to this [PromiseIterator](PromiseIterator.md).
 
-`Iterator`\<`Promise`\<`A`\>\> | `Iterable`\<`Promise`\<`A`\>\>
+`Iterator`\<`Promise`\<`A`\>, `any`, `any`\> | `Iterable`\<`Promise`\<`A`\>, `any`, `any`\>
 
 #### Returns
 
@@ -155,7 +163,7 @@ This method allows to use an Iterator function in a fluent way.
 
 ##### mapper
 
-`Mapper`\<`Iterator`\<`Promise`\<`A`\>\>, [`Eventually`](../type-aliases/Eventually.md)\<`B`\>\>
+`Mapper`\<`Iterator`\<`Promise`\<`A`\>, `any`, `any`\>, [`Eventually`](../type-aliases/Eventually.md)\<`B`\>\>
 
 #### Returns
 
@@ -438,7 +446,7 @@ Returns a new [PromiseIterator](PromiseIterator.md) that is the result of apepen
 
 ##### iterables
 
-...(`Iterator`\<`Promise`\<`A`\>\> \| `Iterable`\<`Promise`\<`A`\>\>)[]
+...(`Iterator`\<`Promise`\<`A`\>, `any`, `any`\> \| `Iterable`\<`Promise`\<`A`\>, `any`, `any`\>)[]
 
 An `Array of `Iterator`or`Iterable` whose items are appended to this FluentIterator.
 
@@ -1069,7 +1077,7 @@ await PromiseIterator.empty().minmax();
 
 ### next()
 
-> **next**(): `IteratorResult`\<`Promise`\<`A`\>, `any`\>
+> **next**(): `IteratorResult`\<`Promise`\<`A`\>\>
 
 Used to make this [PromiseIterator](PromiseIterator.md) being seen as an
 `Iterator<Promise<A?>`. This allows [PromiseIterator](PromiseIterator.md) objects to be
@@ -1077,7 +1085,7 @@ used in APIs expecting an `Iterator<Promise<A>>`
 
 #### Returns
 
-`IteratorResult`\<`Promise`\<`A`\>, `any`\>
+`IteratorResult`\<`Promise`\<`A`\>\>
 
 #### Implementation of
 
@@ -1130,7 +1138,7 @@ Returns a new [PromiseIterator](PromiseIterator.md) that is the result of prepen
 
 An `Iterator` or `Iterable` whose items are prepended to this [PromiseIterator](PromiseIterator.md).
 
-`Iterator`\<`Promise`\<`A`\>\> | `Iterable`\<`Promise`\<`A`\>\>
+`Iterator`\<`Promise`\<`A`\>, `any`, `any`\> | `Iterable`\<`Promise`\<`A`\>, `any`, `any`\>
 
 #### Returns
 
@@ -1426,7 +1434,7 @@ This method allows to extends the class FluentIterator using `Iterator` transfor
 
 ##### mapper
 
-`Mapper`\<`Iterator`\<`Promise`\<`A`\>\>, `Iterator`\<`Promise`\<`B`\>\>\>
+`Mapper`\<`Iterator`\<`Promise`\<`A`\>, `any`, `any`\>, `Iterator`\<`Promise`\<`B`\>, `any`, `any`\>\>
 
 #### Returns
 
@@ -1468,7 +1476,7 @@ The type of elements of the `other` iterator.
 
 The iterator that is combined with this one.
 
-`Iterator`\<`Promise`\<`B`\>\> | `Iterable`\<`Promise`\<`B`\>\>
+`Iterator`\<`Promise`\<`B`\>, `any`, `any`\> | `Iterable`\<`Promise`\<`B`\>, `any`, `any`\>
 
 #### Returns
 

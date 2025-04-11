@@ -27,6 +27,8 @@ Maps the computed value to a new value using the provided function.
 
 • **R**
 
+The type of the result after applying the function.
+
 #### Parameters
 
 ##### mapper
@@ -40,10 +42,6 @@ The function to apply to the computed value.
 [`AsyncLazy`](AsyncLazy.md)\<`R`\>
 
 A new instance of Lazy with the transformed value.
-
-#### Param Type
-
-R - The type of the result after applying the function.
 
 ---
 

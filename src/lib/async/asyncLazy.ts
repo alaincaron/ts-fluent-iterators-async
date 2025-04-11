@@ -44,8 +44,7 @@ export class AsyncLazy<T> {
   /**
    * Private constructor to create an instance of `Lazy`.
    * @private
-   * @constructor
-   * @param {AsyncProver<T>} provider - The function representing the lazy provider.
+   * @param {EventualProvider<T|Try<T>>} provider - The function representing the lazy provider.
    */
   private constructor(private readonly provider: EventualProvider<T | Try<T>>) {}
 
@@ -61,7 +60,7 @@ export class AsyncLazy<T> {
 
   /**
    * Maps the computed value to a new value using the provided function.
-   * @paramType R - The type of the result after applying the function.
+   * @typeParam R - The type of the result after applying the function.
    * @param {Mapper<T,R>} mapper - The function to apply to the computed value.
    * @returns {Lazy<R>} A new instance of Lazy with the transformed value.
    */

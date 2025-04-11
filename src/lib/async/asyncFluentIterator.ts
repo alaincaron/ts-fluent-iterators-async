@@ -354,7 +354,7 @@ export class AsyncFluentIterator<A> implements AsyncIterator<A>, AsyncIterable<A
    * final result of running the reducer across all elements of the array
    * is a single value.
 
-   * @paramType B the type into which the elements are being folded to
+   * @typeParam B the type into which the elements are being folded to
    * @param reducer The reducer to be applied at each iteration.
    * @param initialValue The value of the accumulator to be used in the first call to `reducer`
 

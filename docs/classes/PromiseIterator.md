@@ -217,7 +217,7 @@ This is equivalent to `Promise.all`
 
 > **collectTo**\<`B`\>(`collector`): `Promise`\<`B`\>
 
-Collects items from the [PromiseIterator](PromiseIterator.md) into an [EventualCollector](../interfaces/EventualCollector.md).
+Collects items from the [PromiseIterator](PromiseIterator.md) into an [EventualCollector](../type-aliases/EventualCollector.md).
 
 #### Type Parameters
 
@@ -229,7 +229,7 @@ The result type of the `EventualCollector`.
 
 ##### collector
 
-[`EventualCollector`](../interfaces/EventualCollector.md)\<`A`, `B`\>
+[`EventualCollector`](../type-aliases/EventualCollector.md)\<`A`, `B`\>
 
 The `EventualCollector` into which to collect the items
 
@@ -705,6 +705,8 @@ is a single value.
 
 • **B**
 
+the type into which the elements are being folded to
+
 #### Parameters
 
 ##### reducer
@@ -722,10 +724,6 @@ The value of the accumulator to be used in the first call to `reducer`
 #### Returns
 
 `Promise`\<`B`\>
-
-#### Param Type
-
-B the type into which the elements are being folded to
 
 #### Remarks
 

@@ -21,6 +21,5 @@ export interface AsyncCollector<A, B> {
 
 /**
  * A `Collector` or an `AsyncCollector`.
- * @interface
  */
 export type EventualCollector<A, B> = Collector<A, B> | AsyncCollector<A, B>;

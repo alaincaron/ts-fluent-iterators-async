@@ -18,13 +18,13 @@
 
 - [AsyncArrayGenerator](interfaces/AsyncArrayGenerator.md)
 - [AsyncCollector](interfaces/AsyncCollector.md)
-- [EventualCollector](interfaces/EventualCollector.md)
 
 ## Type Aliases
 
 - [AsyncIteratorGenerator](type-aliases/AsyncIteratorGenerator.md)
 - [AsyncIteratorLike](type-aliases/AsyncIteratorLike.md)
 - [EventualBinaryMapper](type-aliases/EventualBinaryMapper.md)
+- [EventualCollector](type-aliases/EventualCollector.md)
 - [EventualIterable](type-aliases/EventualIterable.md)
 - [EventualIterableIterator](type-aliases/EventualIterableIterator.md)
 - [EventualIterator](type-aliases/EventualIterator.md)

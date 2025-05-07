@@ -1,8 +1,8 @@
-[**ts-fluent-iterators-async**](../../README.md)
+[**ts-fluent-iterators-async**](../../../README.md)
 
 ---
 
-[ts-fluent-iterators-async](../../README.md) / AsyncGenerators
+[ts-fluent-iterators-async](../../../README.md) / AsyncGenerators
 
 # AsyncGenerators
 

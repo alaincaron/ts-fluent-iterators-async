@@ -10,7 +10,9 @@ An interface used to asynchronously generate arrays from `length` and `seed`
 
 ## Type Parameters
 
-• **E**
+### E
+
+`E`
 
 the type of the objects in the generated `Array`
 

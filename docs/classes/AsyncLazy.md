@@ -11,7 +11,9 @@ Lazy
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`
 
 The type of the value.
 
@@ -19,13 +21,15 @@ The type of the value.
 
 ### map()
 
-> **map**\<`R`\>(`mapper`): [`AsyncLazy`](AsyncLazy.md)\<`R`\>
+> **map**\<`R`\>(`mapper`): `AsyncLazy`\<`R`\>
 
 Maps the computed value to a new value using the provided function.
 
 #### Type Parameters
 
-• **R**
+##### R
+
+`R`
 
 The type of the result after applying the function.
 
@@ -39,7 +43,7 @@ The function to apply to the computed value.
 
 #### Returns
 
-[`AsyncLazy`](AsyncLazy.md)\<`R`\>
+`AsyncLazy`\<`R`\>
 
 A new instance of Lazy with the transformed value.
 
@@ -61,13 +65,15 @@ The computed value.
 
 ### create()
 
-> `static` **create**\<`T`\>(`provider`): [`AsyncLazy`](AsyncLazy.md)\<`T`\>
+> `static` **create**\<`T`\>(`provider`): `AsyncLazy`\<`T`\>
 
 Static method to create an instance of `Lazy`.
 
 #### Type Parameters
 
-• **T**
+##### T
+
+`T`
 
 The type of the value.
 
@@ -81,6 +87,6 @@ The function representing the lazy provider.
 
 #### Returns
 
-[`AsyncLazy`](AsyncLazy.md)\<`T`\>
+`AsyncLazy`\<`T`\>
 
 An instance of Lazy.

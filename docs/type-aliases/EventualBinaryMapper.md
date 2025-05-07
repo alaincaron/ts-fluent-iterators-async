@@ -6,21 +6,27 @@
 
 # Type Alias: EventualBinaryMapper()\<A, B, C\>
 
-> **EventualBinaryMapper**\<`A`, `B`, `C`\>: (`a`, `b`) => [`Eventually`](Eventually.md)\<`C`\>
+> **EventualBinaryMapper**\<`A`, `B`, `C`\> = (`a`, `b`) => [`Eventually`](Eventually.md)\<`C`\>
 
 An eventual BinaryMapper
 
 ## Type Parameters
 
-• **A**
+### A
+
+`A`
 
 the type of the first operand
 
-• **B**
+### B
+
+`B`
 
 the type of the second operand
 
-• **C**
+### C
+
+`C`
 
 ## Parameters
 

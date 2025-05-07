@@ -6,7 +6,7 @@
 
 ## Namespaces
 
-- [AsyncGenerators](namespaces/AsyncGenerators/README.md)
+- [AsyncGenerators](ts-fluent-iterators-async/namespaces/AsyncGenerators/README.md)
 
 ## Classes
 

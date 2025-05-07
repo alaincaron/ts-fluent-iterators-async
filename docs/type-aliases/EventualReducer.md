@@ -6,17 +6,21 @@
 
 # Type Alias: EventualReducer\<A, B\>
 
-> **EventualReducer**\<`A`, `B`\>: [`EventualBinaryMapper`](EventualBinaryMapper.md)\<`B`, `A`, `B`\>
+> **EventualReducer**\<`A`, `B`\> = [`EventualBinaryMapper`](EventualBinaryMapper.md)\<`B`, `A`, `B`\>
 
 An eventual `Reducer`. Used for asynchronous `fold` and `reduce` operations.
 
 ## Type Parameters
 
-• **A**
+### A
+
+`A`
 
 Type of elements being reduced
 
-• **B**
+### B
+
+`B`
 
 Type into which the elements are being reduced to.
 

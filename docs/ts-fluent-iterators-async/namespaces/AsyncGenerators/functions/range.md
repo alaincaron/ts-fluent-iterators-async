@@ -1,12 +1,12 @@
-[**ts-fluent-iterators-async**](../../../README.md)
+[**ts-fluent-iterators-async**](../../../../README.md)
 
 ---
 
-[ts-fluent-iterators-async](../../../README.md) / [AsyncGenerators](../README.md) / range
+[ts-fluent-iterators-async](../../../../README.md) / [AsyncGenerators](../README.md) / range
 
 # Function: range()
 
-> **range**(`start`?, `end`?, `step`?): `AsyncIterableIterator`\<`number`\>
+> **range**(`start?`, `end?`, `step?`): `AsyncIterableIterator`\<`number`\>
 
 Returns an `AsyncIterableiterator` from `start` (inclusively) to `end` (exclusively) by increment of `step`.
 

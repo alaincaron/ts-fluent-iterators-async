@@ -10,11 +10,15 @@ An `AsyncCollector` is an object that asynchronously collects elements of type `
 
 ## Type Parameters
 
-• **A**
+### A
+
+`A`
 
 the type of elements being collected.
 
-• **B**
+### B
+
+`B`
 
 the type of the aggregated object.
 

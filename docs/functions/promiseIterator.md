@@ -12,7 +12,9 @@ Alias for [PromiseIterator.from](../classes/PromiseIterator.md#from)
 
 ## Type Parameters
 
-• **A**
+### A
+
+`A`
 
 ## Parameters
 

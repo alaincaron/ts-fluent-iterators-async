@@ -12,7 +12,9 @@ Alias for AsyncFluentiterator.singleton
 
 ## Type Parameters
 
-• **A**
+### A
+
+`A`
 
 ## Parameters
 

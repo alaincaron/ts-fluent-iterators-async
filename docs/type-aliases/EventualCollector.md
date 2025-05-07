@@ -6,12 +6,16 @@
 
 # Type Alias: EventualCollector\<A, B\>
 
-> **EventualCollector**\<`A`, `B`\>: `Collector`\<`A`, `B`\> \| [`AsyncCollector`](../interfaces/AsyncCollector.md)\<`A`, `B`\>
+> **EventualCollector**\<`A`, `B`\> = `Collector`\<`A`, `B`\> \| [`AsyncCollector`](../interfaces/AsyncCollector.md)\<`A`, `B`\>
 
 A `Collector` or an `AsyncCollector`.
 
 ## Type Parameters
 
-• **A**
+### A
 
-• **B**
+`A`
+
+### B
+
+`B`

@@ -12,7 +12,9 @@ Helper function to create a [PromiseIterator](../classes/PromiseIterator.md) fro
 
 ## Type Parameters
 
-• **A**
+### A
+
+`A`
 
 ## Parameters
 

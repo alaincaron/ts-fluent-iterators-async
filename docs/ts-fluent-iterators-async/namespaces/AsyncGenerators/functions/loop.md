@@ -1,25 +1,27 @@
-[**ts-fluent-iterators-async**](../../../README.md)
+[**ts-fluent-iterators-async**](../../../../README.md)
 
 ---
 
-[ts-fluent-iterators-async](../../../README.md) / [AsyncGenerators](../README.md) / loop
+[ts-fluent-iterators-async](../../../../README.md) / [AsyncGenerators](../README.md) / loop
 
 # Function: loop()
 
-> **loop**\<`T`\>(`f`, `start`?, `end`?, `step`?): `AsyncIterableIterator`\<`T`\>
+> **loop**\<`T`\>(`f`, `start?`, `end?`, `step?`): `AsyncIterableIterator`\<`T`\>
 
 Returns an `AsyncIterableIterator` resulting from applying f on all elements of the range
 from `start` (inclusively) to `end` (exclusively) by increment of `step`.
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`
 
 ## Parameters
 
 ### f
 
-[`EventualMapper`](../../../type-aliases/EventualMapper.md)\<`number`, `T`\>
+[`EventualMapper`](../../../../type-aliases/EventualMapper.md)\<`number`, `T`\>
 
 The function to apply on each element of the range.
 

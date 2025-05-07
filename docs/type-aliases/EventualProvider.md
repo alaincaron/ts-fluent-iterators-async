@@ -6,13 +6,15 @@
 
 # Type Alias: EventualProvider()\<A\>
 
-> **EventualProvider**\<`A`\>: () => [`Eventually`](Eventually.md)\<`A`\>
+> **EventualProvider**\<`A`\> = () => [`Eventually`](Eventually.md)\<`A`\>
 
 A function that provides an eventual value of type `A`
 
 ## Type Parameters
 
-• **A**
+### A
+
+`A`
 
 the type of elements being provided
 

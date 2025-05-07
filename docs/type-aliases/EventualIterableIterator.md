@@ -6,12 +6,14 @@
 
 # Type Alias: EventualIterableIterator\<A\>
 
-> **EventualIterableIterator**\<`A`\>: `IterableIterator`\<`A`\> \| `AsyncIterableIterator`\<`A`\>
+> **EventualIterableIterator**\<`A`\> = `IterableIterator`\<`A`\> \| `AsyncIterableIterator`\<`A`\>
 
 An `IterableIterator` that maybe asynchronous.
 
 ## Type Parameters
 
-• **A**
+### A
+
+`A`
 
 the type of objects being iterated on.

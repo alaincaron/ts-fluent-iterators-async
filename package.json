@@ -1,6 +1,6 @@
 {
   "name": "ts-fluent-iterators-async",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "lazy fluent async iterators",
   "main": "./dist/index.js",
   "engines": {
@@ -53,7 +53,6 @@
     "@types/mocha": "^10.0.10",
     "@typescript-eslint/eslint-plugin": "^8.32.0",
     "chai": "^4.3.10",
-    "eslint": "^9.26.0",
     "eslint": "^9.26.0",
     "eslint-plugin-import": "^2.31.0",
     "globals": "^16.1.0",

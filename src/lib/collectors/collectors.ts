@@ -10,7 +10,7 @@ export interface AsyncCollector<A, B> {
    * Collects an element.
    * @param a The element being collected.
    */
-  collect(a: A): Promise<boolean | void>;
+  collect(a: A): Promise<void>;
 
   /**
    * Returns the aggregated object.

@@ -183,7 +183,7 @@ export async function collectTo<A, B>(
   for (;;) {
     const item = iter.next();
     if (item.done) break;
-    if (await collector.collect(await item.value)) break;
+    await collector.collect(await item.value);
   }
   return collector.result;
 }

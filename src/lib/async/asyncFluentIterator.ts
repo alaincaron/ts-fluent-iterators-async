@@ -9,11 +9,9 @@ import {
   Mapper,
   MaxCollector,
   MinCollector,
-  MinMax,
-  MinMaxCollector,
   ObjectCollector,
   SetCollector,
-  StringJoiner,
+  JoinCollector,
   TallyCollector,
 } from 'ts-fluent-iterators';
 import * as Iterators from './asyncIterators';
@@ -614,25 +612,6 @@ export class AsyncFluentIterator<A> implements AsyncIterator<A>, AsyncIterable<A
   }
 
   /**
-   * Returns the minimum and maximum element according to the argument {@link Comparator | comparator}.
-   *
-   * @example
-   * await asyncIterator([1,2]).minmax();
-   * // { min: 1, max: 2}
-   *
-   * await asyncIterator(['foo','foobar']).minmax(
-   *    (s1,s2) => s1.length - s2.length
-   * );
-   * // { min: 'foo', max: 'foobar' }
-
-   * await AsyncFluentIterator.empty().minmax();
-   // undefined
-   */
-  minmax(comparator?: Comparator<A>): Promise<MinMax<A> | undefined> {
-    return this.collectTo(new MinMaxCollector(comparator));
-  }
-
-  /**
    * Returns a Promise of the last element of this {@link AsyncFluentIterator}
    *
    * @example
@@ -662,7 +641,7 @@ export class AsyncFluentIterator<A> implements AsyncIterator<A>, AsyncIterable<A
    * The items are converted into a string using string-interpolation.
    */
   join(separator?: string, prefix?: string, suffix?: string): Promise<string> {
-    return this.collectTo(new StringJoiner(separator, prefix, suffix));
+    return this.collectTo(new JoinCollector(separator, prefix, suffix));
   }
 
   /**

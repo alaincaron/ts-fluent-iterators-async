@@ -1012,37 +1012,6 @@ await asyncFluentIterator.empty().min();
 
 ---
 
-### minmax()
-
-> **minmax**(`comparator?`): `Promise`\<`undefined` \| `MinMax`\<`A`\>\>
-
-Returns the minimum and maximum element according to the argument Comparator \| comparator.
-
-#### Parameters
-
-##### comparator?
-
-`Comparator`\<`A`\>
-
-#### Returns
-
-`Promise`\<`undefined` \| `MinMax`\<`A`\>\>
-
-#### Example
-
-```ts
-await asyncIterator([1, 2]).minmax();
-// { min: 1, max: 2}
-
-await asyncIterator(['foo', 'foobar']).minmax((s1, s2) => s1.length - s2.length);
-// { min: 'foo', max: 'foobar' }
-
-await AsyncFluentIterator.empty().minmax();
-// undefined
-```
-
----
-
 ### next()
 
 > **next**(): `Promise`\<`IteratorResult`\<`A`, `any`\>\>

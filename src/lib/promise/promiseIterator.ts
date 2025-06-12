@@ -6,16 +6,14 @@ import {
   FluentIterator,
   GroupByCollector,
   IteratorGenerator,
+  JoinCollector,
   LastCollector,
   MapCollector,
   Mapper,
   MaxCollector,
   MinCollector,
-  MinMax,
-  MinMaxCollector,
   ObjectCollector,
   SetCollector,
-  StringJoiner,
   Iterators as SyncIterators,
   TallyCollector,
 } from 'ts-fluent-iterators';
@@ -646,25 +644,6 @@ export class PromiseIterator<A> implements Iterator<Promise<A>>, Iterable<Promis
   }
 
   /**
-   * Returns the minimum and maximum element according to the argument {@link Comparator | comparator}.
-   *
-   * @example
-   * await toPromiseIterator([1,2]).minmax();
-   * // { min: 1, max: 2}
-   *
-   * await toPromiseIterator(['foo','foobar']).minmax(
-   *    (s1,s2) => s1.length - s2.length
-   * );
-   * // { min: 'foo', max: 'foobar' }
-
-   * await PromiseIterator.empty().minmax();
-   // undefined
-   */
-  minmax(comparator?: Comparator<A>): Promise<MinMax<A> | undefined> {
-    return this.collectTo(new MinMaxCollector(comparator));
-  }
-
-  /**
    * Returns a Promise of the last element of this {@link PromiseIterator}
    *
    * @example
@@ -694,7 +673,7 @@ export class PromiseIterator<A> implements Iterator<Promise<A>>, Iterable<Promis
    * The items are converted into a string using string-interpolation.
    */
   join(separator?: string, prefix?: string, suffix?: string): Promise<string> {
-    return this.collectTo(new StringJoiner(separator, prefix, suffix));
+    return this.collectTo(new JoinCollector(separator, prefix, suffix));
   }
 
   /**

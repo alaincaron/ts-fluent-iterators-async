@@ -388,20 +388,6 @@ describe('AsyncFluentIterator', () => {
     });
   });
 
-  describe('minmax', () => {
-    it('should return the longest and shortest strings', async () => {
-      expect(
-        await iterator(['foo', 'bar', 'x', 'foobar']).minmax((a, b) => Comparators.natural(a.length, b.length))
-      ).deep.equal({
-        min: 'x',
-        max: 'foobar',
-      });
-    });
-    it('should return lexicographically smallest and largest strings', async () => {
-      expect(await iterator(['foo', 'bar', 'x', 'foobar']).minmax()).deep.equal({ min: 'bar', max: 'x' });
-    });
-  });
-
   describe('last', () => {
     it('should return the last string', async () => {
       expect(await iterator(['foo', 'bar', 'x', 'foobar']).last()).equal('foobar');

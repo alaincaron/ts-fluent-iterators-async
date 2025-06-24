@@ -706,7 +706,7 @@ Returns a new PromiseIterator for [EventualMapper](../type-aliases/EventualMappe
 ```ts
 const iter = toPromiseIterator([1, 2]);
 await iter.flatmap(async x => 2 * (await x));
-yields: Promise(2), Promise(4);
+yields: (Promise(2), Promise(4));
 ```
 
 ---

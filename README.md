@@ -15,23 +15,19 @@ Install from [Node Package Manager](https://www.npmjs.com/): `npm i ts-fluent-it
 ## Operations supported
 
 - Item-by-item transformations:
-
   - [map](docs/classes/FluentIterator.md#map)
   - [enumerate](docs/classes/FluentIterator.md#enumerate)
 
 - Group transformations like
-
   - [partition](docs/classes/FluentIterator.md#partition)
   - [tally](docs/classes/FluentIterator.md#tally)
 
 - Extending operations like
-
   - [append](docs/classes/FluentIterator.md#append)
   - [prepend](docs/classes/FluentIterator.md#prepend)
   - [concat](docs/classes/FluentIterator.md#concat)
 
 - Narrowing operations like
-
   - [filter](docs/classes/FluentIterator.md#filter)
   - [take](docs/classes/FluentIterator.md#take)
   - [takeWhile](docs/classes/FluentIterator.md#takewhile)
@@ -41,7 +37,6 @@ Install from [Node Package Manager](https://www.npmjs.com/): `npm i ts-fluent-it
   - [last](docs/classes/FluentIterator.md#last)
 
 - Aggregating operations:
-
   - [collect](docs/classes/FluentIterator.md#collect)
   - [groupBy](docs/classes/FluentIterator.md#groupby)
   - [tally](docs/classes/FluentIterator.md#tally)
@@ -57,14 +52,12 @@ Install from [Node Package Manager](https://www.npmjs.com/): `npm i ts-fluent-it
   - [min](docs/classes/FluentIterator.md#min)
 
 - Logical aggregating operations:
-
   - [all](docs/classes/FluentIterator.md#all)
   - [some](docs/classes/FluentIterator.md#some)
   - [contains](docs/classes/FluentIterator.md#contains)
   - [includes](docs/classes/FluentIterator.md#includes)
 
 - Execution operations:
-
   - [tap](docs/classes/FluentIterator.md#tap)
   - [forEach](docs/classes/FluentIterator.md#foreach)
 

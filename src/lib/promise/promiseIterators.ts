@@ -1,7 +1,7 @@
 import { ArrayCollector, IteratorGenerator, Iterators as SyncIterators } from 'ts-fluent-iterators';
 import * as AsyncIterators from '../async/asyncIterators';
 import { EventualCollector } from '../collectors';
-import { Eventually, EventualMapper, EventualPredicate, EventualReducer } from '../utils';
+import { EventualConsumer, Eventually, EventualMapper, EventualPredicate, EventualReducer } from '../utils';
 
 export function* map<A, B>(iter: Iterator<Promise<A>>, mapper: EventualMapper<A, B>): IterableIterator<Promise<B>> {
   for (;;) {
@@ -58,11 +58,11 @@ export async function* filterMap<A, B>(
   }
 }
 
-export function* tap<A>(iter: Iterator<Promise<A>>, mapper: EventualMapper<A, any>): IterableIterator<Promise<A>> {
+export function* tap<A>(iter: Iterator<Promise<A>>, mapper: EventualConsumer<A>): IterableIterator<Promise<A>> {
   for (;;) {
     const item = iter.next();
     if (item.done) break;
-    yield item.value.then(a => mapper(a)).then((_: any) => item.value);
+    yield item.value.then(a => mapper(a)).then(_ => item.value);
   }
 }
 
@@ -98,9 +98,9 @@ export async function includes<A>(iter: Iterator<Promise<A>>, target: Eventually
 export async function fold<A, B>(
   iter: Iterator<Promise<A>>,
   reducer: EventualReducer<A, B>,
-  initialValue: Eventually<B>
+  initialValue: B
 ): Promise<B> {
-  let acc = await initialValue;
+  let acc = initialValue;
   for (;;) {
     const item = iter.next();
     if (item.done) return acc;
@@ -111,7 +111,7 @@ export async function fold<A, B>(
 export async function reduce<A>(
   iter: Iterator<Promise<A>>,
   reducer: EventualReducer<A, A>,
-  initialValue?: Eventually<A>
+  initialValue?: A
 ): Promise<A | undefined> {
   let acc = initialValue;
   if (acc === undefined) {
@@ -122,7 +122,23 @@ export async function reduce<A>(
   return fold(iter, reducer, acc);
 }
 
-export async function forEach<A>(iter: Iterator<Promise<A>>, mapper: EventualMapper<A, any>): Promise<void> {
+export async function* scan<A, B>(
+  iter: Iterator<Promise<A>>,
+  reducer: EventualReducer<A, B>,
+  initialValue: B,
+  emitInitial = false
+): AsyncIterableIterator<B> {
+  let acc = initialValue;
+  if (emitInitial) yield acc;
+  for (;;) {
+    const item = iter.next();
+    if (item.done) break;
+    acc = await reducer(acc, await item.value);
+    yield acc;
+  }
+}
+
+export async function forEach<A>(iter: Iterator<Promise<A>>, mapper: EventualConsumer<A>): Promise<void> {
   for (;;) {
     const item = iter.next();
     if (item.done) break;

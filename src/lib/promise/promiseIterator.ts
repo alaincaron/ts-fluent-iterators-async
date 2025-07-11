@@ -499,8 +499,37 @@ export class PromiseIterator<A> implements Iterator<Promise<A>>, Iterable<Promis
    *    .reduce((acc, x) => acc + x)
    * // sum = 6
    */
-  reduce(reducer: EventualReducer<A, A>, initialValue?: Eventually<A>): Promise<A | undefined> {
+  reduce(reducer: EventualReducer<A, A>, initialValue?: A): Promise<A | undefined> {
     return Iterators.reduce(this.iter, reducer, initialValue);
+  }
+
+  /**
+   * Applies a reducer function over this {@link AsyncFluentIterator}, returning a {@link FluentIterator} yielding each intermediate reduce result.
+   *
+   * Similar to `fold`, but instead of returning only the final result,
+   * `scan()` emits the accumulated value at each step. This is useful for calculating running
+   * totals, prefix sums, rolling aggregates, and more.
+   *
+   * If this {@link FluentIterator} is empty, no values are emitted unless `emitInitial` is `true`.
+
+   * @template B  The type of the accumulated result.
+   *
+   * @param reducer The reducer function to be applied at each iteration
+   *
+   *
+   * @param initialValue The initial value of the accumulator.
+   *
+   * @param emitInitial
+
+   * @returns {AsyncFluentIterator<B>}
+   *   A new {@link AsyncFluentIterator} that emits the accumulator at each step.
+   *
+   * @example
+   * toPromiseIterator([1, 2, 3, 4]).scan((acc, x) => acc + x, 0) // yields 1, 3, 6, 10
+   *
+   */
+  scan<B>(reducer: EventualReducer<A, B>, initialValue: B, emitInitial = false): AsyncFluentIterator<B> {
+    return new AsyncFluentIterator(Iterators.scan(this.iter, reducer, initialValue, emitInitial));
   }
 
   /**

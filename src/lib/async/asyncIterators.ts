@@ -3,6 +3,7 @@ import { EventualCollector } from '../collectors';
 import {
   AsyncArrayGenerator,
   AsyncIteratorGenerator,
+  EventualConsumer,
   EventualIterable,
   EventualIterator,
   Eventually,
@@ -89,7 +90,7 @@ export async function* take<A>(iter: AsyncIterator<A>, n: number): AsyncIterable
   }
 }
 
-export async function* tap<A>(iter: AsyncIterator<A>, mapper: EventualMapper<A, any>): AsyncIterableIterator<A> {
+export async function* tap<A>(iter: AsyncIterator<A>, mapper: EventualConsumer<A>): AsyncIterableIterator<A> {
   for (;;) {
     const item = await iter.next();
     if (item.done) break;
@@ -184,7 +185,23 @@ export async function reduce<A>(
   return fold(iter, reducer, acc);
 }
 
-export async function forEach<A>(iter: AsyncIterator<A>, mapper: EventualMapper<A, any>): Promise<void> {
+export async function* scan<A, B>(
+  iter: AsyncIterator<A>,
+  reducer: EventualReducer<A, B>,
+  initialValue: B,
+  emitInitial = false
+): AsyncIterableIterator<B> {
+  let acc = initialValue;
+  if (emitInitial) yield acc;
+  for (;;) {
+    const item = await iter.next();
+    if (item.done) break;
+    acc = await reducer(acc, item.value);
+    yield acc;
+  }
+}
+
+export async function forEach<A>(iter: AsyncIterator<A>, mapper: EventualConsumer<A>): Promise<void> {
   for (;;) {
     const item = await iter.next();
     if (item.done) break;

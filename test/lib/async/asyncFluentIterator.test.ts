@@ -224,6 +224,40 @@ describe('AsyncFluentIterator', () => {
     });
   });
 
+  describe('scan', () => {
+    it('computes running total (default emitInitial = false)', async () => {
+      expect(
+        await iterator([1, 2, 3, 4])
+          .scan((acc, x) => Promise.resolve(acc + x), 0)
+          .collect()
+      ).deep.equal([1, 3, 6, 10]);
+    });
+
+    it('computes running total with emitInitial = true', async () => {
+      expect(
+        await iterator([1, 2, 3, 4])
+          .scan((acc, x) => acc + x, 0, true)
+          .collect()
+      ).deep.equal([0, 1, 3, 6, 10]);
+    });
+
+    it('returns [] for empty input (emitInitial = false)', async () => {
+      expect(
+        await iterator([])
+          .scan((acc, x) => acc + x, 100)
+          .collect()
+      ).deep.equal([]);
+    });
+
+    it('returns [initial] for empty input with emitInitial = true', async () => {
+      expect(
+        await iterator([])
+          .scan((acc, x) => acc + x, 100, true)
+          .collect()
+      ).deep.equal([100]);
+    });
+  });
+
   describe('tap', () => {
     it('should tap all elements', async () => {
       let count = 0;

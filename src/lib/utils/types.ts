@@ -19,6 +19,12 @@ export type EventualMapper<A, B> = Mapper<A, Eventually<B>>;
 export type EventualProvider<A> = () => Eventually<A>;
 
 /**
+ * A function that eventually consumes a value of type `A`
+ * @typeParam A the type of elements being consumed
+ **/
+export type EventualConsumer<A> = EventualMapper<A, void>;
+
+/**
  * An eventual BinaryMapper
  * @typeParam A the type of the first operand
  * @typeParam B the type of the second operand

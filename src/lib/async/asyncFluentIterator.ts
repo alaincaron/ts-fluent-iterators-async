@@ -18,6 +18,7 @@ import * as Iterators from './asyncIterators';
 import { EventualCollector } from '../collectors';
 import {
   AsyncIteratorGenerator,
+  EventualConsumer,
   EventualIterable,
   EventualIterator,
   Eventually,
@@ -370,7 +371,7 @@ export class AsyncFluentIterator<A> implements AsyncIterator<A>, AsyncIterable<A
   }
 
   /**
-   * Special case of {@link AsyncFluentIterator.fold} where items being iteraded on and the accumulator are of the same type.
+   * Special case of {@link AsyncFluentIterator.fold} where items being iterated on and the accumulator are of the same type.
 
    * @param reducer The reducer to be applied at each iteration.
    * @param initialValue The value of the accumulator to be used in the first call to `reducer`. If omitted, the first element of this {@link AsyncFluentIterator} is used.
@@ -386,6 +387,35 @@ export class AsyncFluentIterator<A> implements AsyncIterator<A>, AsyncIterable<A
    */
   reduce(reducer: EventualReducer<A, A>, initialValue?: A): Promise<A | undefined> {
     return Iterators.reduce(this.iter, reducer, initialValue);
+  }
+
+  /**
+   * Applies a reducer function over this {@link AsyncFluentIterator}, returning a {@link FluentIterator} yielding each intermediate reduce result.
+   *
+   * Similar to `fold`, but instead of returning only the final result,
+   * `scan()` emits the accumulated value at each step. This is useful for calculating running
+   * totals, prefix sums, rolling aggregates, and more.
+   *
+   * If this {@link FluentIterator} is empty, no values are emitted unless `emitInitial` is `true`.
+
+   * @template B  The type of the accumulated result.
+   *
+   * @param reducer The reducer function to be applied at each iteration
+   *
+   *
+   * @param initialValue The initial value of the accumulator.
+   *
+   * @param emitInitial
+
+   * @returns {AsyncFluentIterator<B>}
+   *   A new {@link AsyncFluentIterator} that emits the accumulator at each step.
+   *
+   * @example
+   * AsyncFluentIterator.from([1, 2, 3, 4]).scan((acc, x) => acc + x, 0) // yields 1, 3, 6, 10
+   *
+   */
+  scan<B>(reducer: EventualReducer<A, B>, initialValue: B, emitInitial = false): AsyncFluentIterator<B> {
+    return new AsyncFluentIterator(Iterators.scan(this.iter, reducer, initialValue, emitInitial));
   }
 
   /**
@@ -444,7 +474,7 @@ export class AsyncFluentIterator<A> implements AsyncIterator<A>, AsyncIterable<A
    * // before filter 3
    * // result : [ 2 ]
    */
-  tap(mapper: EventualMapper<A, any>): AsyncFluentIterator<A> {
+  tap(mapper: EventualConsumer<A>): AsyncFluentIterator<A> {
     return new AsyncFluentIterator(Iterators.tap(this.iter, mapper));
   }
 
@@ -462,7 +492,7 @@ export class AsyncFluentIterator<A> implements AsyncIterator<A>, AsyncIterable<A
    * for (await const v of iter) await mapper(v);
    * ```
    */
-  forEach(mapper: EventualMapper<A, any>): Promise<void> {
+  forEach(mapper: EventualConsumer<A>): Promise<void> {
     return Iterators.forEach(this.iter, mapper);
   }
 

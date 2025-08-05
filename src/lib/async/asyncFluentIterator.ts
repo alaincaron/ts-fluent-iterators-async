@@ -245,6 +245,10 @@ export class AsyncFluentIterator<A> implements AsyncIterator<A>, AsyncIterable<A
     return new AsyncFluentIterator(Iterators.filterMap(this.iter, mapper));
   }
 
+  flatMap<B>(mapper: EventualMapper<A, EventualIterator<B> | EventualIterable<B>>) {
+    return new AsyncFluentIterator(Iterators.flatMap(this.iter, mapper));
+  }
+
   /**
    * Returns the first element of this {@link AsyncFluentIterator} or `undefined` if this {@link AsyncFluentIterator} is empty.
    *

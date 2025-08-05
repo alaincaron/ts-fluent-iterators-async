@@ -1,7 +1,15 @@
 import { ArrayCollector, IteratorGenerator, Iterators as SyncIterators } from 'ts-fluent-iterators';
 import * as AsyncIterators from '../async/asyncIterators';
 import { EventualCollector } from '../collectors';
-import { EventualConsumer, Eventually, EventualMapper, EventualPredicate, EventualReducer } from '../utils';
+import {
+  EventualConsumer,
+  EventualIterable,
+  EventualIterator,
+  Eventually,
+  EventualMapper,
+  EventualPredicate,
+  EventualReducer,
+} from '../utils';
 
 export function* map<A, B>(iter: Iterator<Promise<A>>, mapper: EventualMapper<A, B>): IterableIterator<Promise<B>> {
   for (;;) {
@@ -11,7 +19,7 @@ export function* map<A, B>(iter: Iterator<Promise<A>>, mapper: EventualMapper<A,
   }
 }
 
-export function* flatmap<A, B>(
+export function* andThenConpose<A, B>(
   iter: Iterator<Promise<A>>,
   mapper: EventualMapper<Promise<A>, B>
 ): IterableIterator<Promise<B>> {
@@ -19,6 +27,22 @@ export function* flatmap<A, B>(
     const item = iter.next();
     if (item.done) break;
     yield item.value.then(a => mapper(Promise.resolve(a)));
+  }
+}
+
+export async function* flatMap<A, B>(
+  iter: Iterator<Promise<A>>,
+  mapper: EventualMapper<A, EventualIterable<B> | EventualIterator<B>>
+): AsyncIterableIterator<B> {
+  for (;;) {
+    const item = iter.next();
+    if (item.done) break;
+    const iter2 = AsyncIterators.toEventualIterator(await mapper(await item.value));
+    for (;;) {
+      const item2 = await iter2.next();
+      if (item2.done) break;
+      yield item2.value;
+    }
   }
 }
 

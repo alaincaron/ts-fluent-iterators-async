@@ -120,6 +120,22 @@ export async function* filter<A>(iter: AsyncIterator<A>, predicate: EventualPred
   }
 }
 
+export async function* flatMap<A, B>(
+  iter: AsyncIterator<A>,
+  mapper: EventualMapper<A, EventualIterator<B> | EventualIterable<B>>
+): AsyncIterableIterator<B> {
+  for (;;) {
+    const item = await iter.next();
+    if (item.done) break;
+    const iter2 = toEventualIterator(await mapper(item.value));
+    for (;;) {
+      const item2 = await iter2.next();
+      if (item2.done) break;
+      yield item2.value;
+    }
+  }
+}
+
 export function removeNull<A>(iter: AsyncIterator<A>): AsyncIterableIterator<A> {
   return filter(iter, a => a != null);
 }

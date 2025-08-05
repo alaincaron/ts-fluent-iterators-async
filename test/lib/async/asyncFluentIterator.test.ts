@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { CollisionHandlers, Comparators, FlattenCollector } from 'ts-fluent-iterators';
+import { CollisionHandlers, Comparators } from 'ts-fluent-iterators';
 import {
   asyncEmptyIterator as empty,
   asyncIterator as iterator,
@@ -547,25 +547,15 @@ describe('AsyncFluentIterator', () => {
     });
   });
 
-  describe('collectTo with FlattenCollector', () => {
+  describe('flatMap', () => {
     it('should return flattened list of numbers', async () => {
-      const actual = (
-        await iterator([
-          [2, 5],
-          [4, 2, 5],
-        ]).collectTo(new FlattenCollector())
-      ).collect();
+      const actual = await iterator([
+        [2, 5],
+        [4, 2, 5],
+      ])
+        .flatMap(arr => arr)
+        .collect();
       const expected = [2, 5, 4, 2, 5];
-      expect(actual).deep.equal(expected);
-    });
-    it('should return flattened set of numbers', async () => {
-      const actual = (
-        await iterator([
-          [2, 5],
-          [4, 2, 5],
-        ]).collectTo(new FlattenCollector())
-      ).collectToSet();
-      const expected = new Set([2, 4, 5]);
       expect(actual).deep.equal(expected);
     });
   });

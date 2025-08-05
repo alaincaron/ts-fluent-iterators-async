@@ -1,5 +1,5 @@
 import { assert, expect } from 'chai';
-import { CollisionHandlers, Comparators, FlattenCollector } from 'ts-fluent-iterators';
+import { CollisionHandlers, Comparators } from 'ts-fluent-iterators';
 import { range } from '../../../src/lib/promise/promiseGenerators';
 import {
   promiseEmptyIterator as empty,
@@ -77,11 +77,11 @@ describe('PromiseIterator', () => {
     });
   });
 
-  describe('flatmap', () => {
+  describe('andThenCompose', () => {
     it('should apply function to all elements', async () => {
       expect(
         await iterator(range(1, 3))
-          .flatmap(async x => 2 * (await x))
+          .andThenCompose(async x => 2 * (await x))
           .collect()
       ).to.deep.equal([2, 4]);
     });
@@ -181,6 +181,21 @@ describe('PromiseIterator', () => {
           .filterMap(x => (x % 2 === 0 ? 2 * x : undefined))
           .collect()
       ).to.deep.equal([4]);
+    });
+  });
+
+  describe('flatMap', () => {
+    it('should return flattened list of numbers', async () => {
+      const actual = await iterator(
+        toPromise([
+          [2, 5],
+          [4, 2, 5],
+        ])
+      )
+        .flatMap(arr => arr)
+        .collect();
+      const expected = [2, 5, 4, 2, 5];
+      expect(actual).deep.equal(expected);
     });
   });
 
@@ -598,33 +613,6 @@ describe('PromiseIterator', () => {
         ])
       ).collectToObject2(mapper, CollisionHandlers.ignore);
       const expected = { a: 1, b: 3 };
-      expect(actual).deep.equal(expected);
-    });
-  });
-
-  describe('collectTo with FlattenCollector', () => {
-    it('should return flattened list of numbers', async () => {
-      const actual = (
-        await iterator(
-          toPromise([
-            [2, 5],
-            [4, 2, 5],
-          ])
-        ).collectTo(new FlattenCollector())
-      ).collect();
-      const expected = [2, 5, 4, 2, 5];
-      expect(actual).deep.equal(expected);
-    });
-    it('should return flattened set of numbers', async () => {
-      const actual = (
-        await iterator(
-          toPromise([
-            [2, 5],
-            [4, 2, 5],
-          ])
-        ).collectTo(new FlattenCollector())
-      ).collectToSet();
-      const expected = new Set([2, 4, 5]);
       expect(actual).deep.equal(expected);
     });
   });

@@ -21,7 +21,14 @@ import * as Iterators from './promiseIterators';
 import { AsyncFluentIterator } from '../async/asyncFluentIterator';
 
 import { EventualCollector } from '../collectors';
-import { Eventually, EventualMapper, EventualPredicate, EventualReducer } from '../utils';
+import {
+  EventualIterable,
+  EventualIterator,
+  Eventually,
+  EventualMapper,
+  EventualPredicate,
+  EventualReducer,
+} from '../utils';
 
 /**
  * Iterator yielding `Promise` objects with a Fluent interface.
@@ -313,11 +320,15 @@ export class PromiseIterator<A> implements Iterator<Promise<A>>, Iterable<Promis
    *
    * @example
    * const iter = toPromiseIterator([1,2]);
-   * await iter.flatmap(async x => 2 * (await x))
+   * await iter.andThenComposse(async x => 2 * (await x))
    * yields: Promise(2), Promise(4)
    */
-  flatmap<B>(mapper: EventualMapper<Promise<A>, B>): PromiseIterator<B> {
-    return new PromiseIterator(Iterators.flatmap(this.iter, mapper));
+  andThenCompose<B>(mapper: EventualMapper<Promise<A>, B>): PromiseIterator<B> {
+    return new PromiseIterator(Iterators.andThenConpose(this.iter, mapper));
+  }
+
+  flatMap<B>(mapper: EventualMapper<A, EventualIterator<B> | EventualIterable<B>>) {
+    return new AsyncFluentIterator(Iterators.flatMap(this.iter, mapper));
   }
 
   /**

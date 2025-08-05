@@ -111,6 +111,40 @@ Fluent version of `Promise.allSettled`
 
 ---
 
+### andThenCompose()
+
+> **andThenCompose**\<`B`\>(`mapper`): `PromiseIterator`\<`B`\>
+
+Returns a new PromiseIterator for [EventualMapper](../type-aliases/EventualMapper.md) that accept a `Promise` rather than an `Awaited` value.
+
+#### Type Parameters
+
+##### B
+
+`B`
+
+#### Parameters
+
+##### mapper
+
+[`EventualMapper`](../type-aliases/EventualMapper.md)\<`Promise`\<`A`\>, `B`\>
+
+[EventualMapper](../type-aliases/EventualMapper.md) accepting a `Promise<A>`
+
+#### Returns
+
+`PromiseIterator`\<`B`\>
+
+#### Example
+
+```ts
+const iter = toPromiseIterator([1, 2]);
+await iter.andThenComposse(async x => 2 * (await x));
+yields: (Promise(2), Promise(4));
+```
+
+---
+
 ### any()
 
 > **any**(): `Promise`\<`undefined` \| `A`\>
@@ -677,40 +711,6 @@ The first element of this PromiseIterator or `undefined`.
 
 ---
 
-### flatmap()
-
-> **flatmap**\<`B`\>(`mapper`): `PromiseIterator`\<`B`\>
-
-Returns a new PromiseIterator for [EventualMapper](../type-aliases/EventualMapper.md) that accept a `Promise` rather than an `Awaited` value.
-
-#### Type Parameters
-
-##### B
-
-`B`
-
-#### Parameters
-
-##### mapper
-
-[`EventualMapper`](../type-aliases/EventualMapper.md)\<`Promise`\<`A`\>, `B`\>
-
-[EventualMapper](../type-aliases/EventualMapper.md) accepting a `Promise<A>`
-
-#### Returns
-
-`PromiseIterator`\<`B`\>
-
-#### Example
-
-```ts
-const iter = toPromiseIterator([1, 2]);
-await iter.flatmap(async x => 2 * (await x));
-yields: (Promise(2), Promise(4));
-```
-
----
-
 ### fold()
 
 > **fold**\<`B`\>(`reducer`, `initialValue`): `Promise`\<`B`\>
@@ -1178,7 +1178,7 @@ The reducer to be applied at each iteration.
 
 ##### initialValue?
 
-[`Eventually`](../type-aliases/Eventually.md)\<`A`\>
+`A`
 
 The value of the accumulator to be used in the first call to `reducer`. If omitted, the first element of this PromiseIterator is used.
 
@@ -1212,6 +1212,58 @@ Returns a new [AsyncFluentIterator](AsyncFluentIterator.md) consisting of elemen
 [`AsyncFluentIterator`](AsyncFluentIterator.md)\<`A`\>
 
 a new [AsyncFluentIterator](AsyncFluentIterator.md) where all the `null` or `undefined` elements are removed.
+
+---
+
+### scan()
+
+> **scan**\<`B`\>(`reducer`, `initialValue`, `emitInitial`): [`AsyncFluentIterator`](AsyncFluentIterator.md)\<`B`\>
+
+Applies a reducer function over this [AsyncFluentIterator](AsyncFluentIterator.md), returning a FluentIterator yielding each intermediate reduce result.
+
+Similar to `fold`, but instead of returning only the final result,
+`scan()` emits the accumulated value at each step. This is useful for calculating running
+totals, prefix sums, rolling aggregates, and more.
+
+If this FluentIterator is empty, no values are emitted unless `emitInitial` is `true`.
+
+#### Type Parameters
+
+##### B
+
+`B`
+
+The type of the accumulated result.
+
+#### Parameters
+
+##### reducer
+
+[`EventualReducer`](../type-aliases/EventualReducer.md)\<`A`, `B`\>
+
+The reducer function to be applied at each iteration
+
+##### initialValue
+
+`B`
+
+The initial value of the accumulator.
+
+##### emitInitial
+
+`boolean` = `false`
+
+#### Returns
+
+[`AsyncFluentIterator`](AsyncFluentIterator.md)\<`B`\>
+
+A new [AsyncFluentIterator](AsyncFluentIterator.md) that emits the accumulator at each step.
+
+#### Example
+
+```ts
+toPromiseIterator([1, 2, 3, 4]).scan((acc, x) => acc + x, 0); // yields 1, 3, 6, 10
+```
 
 ---
 

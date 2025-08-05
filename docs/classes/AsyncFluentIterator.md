@@ -712,7 +712,7 @@ Applies the [mapper](../type-aliases/EventualMapper.md) to each element of this 
 
 ##### mapper
 
-[`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `any`\>
+[`EventualConsumer`](../type-aliases/EventualConsumer.md)\<`A`\>
 
 the operation to be invoked on each element.
 
@@ -1094,7 +1094,7 @@ asyncIterator([1, 2, 3]).prepend([4, 5, 6]);
 
 > **reduce**(`reducer`, `initialValue?`): `Promise`\<`undefined` \| `A`\>
 
-Special case of [AsyncFluentIterator.fold](#fold) where items being iteraded on and the accumulator are of the same type.
+Special case of [AsyncFluentIterator.fold](#fold) where items being iterated on and the accumulator are of the same type.
 
 #### Parameters
 
@@ -1140,6 +1140,58 @@ Returns a new AsyncFluentIterator consisting of elements of this AsyncFluentIter
 `AsyncFluentIterator`\<`A`\>
 
 a new AsyncFluentIterator where all the `null` or `undefined` elements are removed.
+
+---
+
+### scan()
+
+> **scan**\<`B`\>(`reducer`, `initialValue`, `emitInitial`): `AsyncFluentIterator`\<`B`\>
+
+Applies a reducer function over this AsyncFluentIterator, returning a FluentIterator yielding each intermediate reduce result.
+
+Similar to `fold`, but instead of returning only the final result,
+`scan()` emits the accumulated value at each step. This is useful for calculating running
+totals, prefix sums, rolling aggregates, and more.
+
+If this FluentIterator is empty, no values are emitted unless `emitInitial` is `true`.
+
+#### Type Parameters
+
+##### B
+
+`B`
+
+The type of the accumulated result.
+
+#### Parameters
+
+##### reducer
+
+[`EventualReducer`](../type-aliases/EventualReducer.md)\<`A`, `B`\>
+
+The reducer function to be applied at each iteration
+
+##### initialValue
+
+`B`
+
+The initial value of the accumulator.
+
+##### emitInitial
+
+`boolean` = `false`
+
+#### Returns
+
+`AsyncFluentIterator`\<`B`\>
+
+A new AsyncFluentIterator that emits the accumulator at each step.
+
+#### Example
+
+```ts
+AsyncFluentIterator.from([1, 2, 3, 4]).scan((acc, x) => acc + x, 0); // yields 1, 3, 6, 10
+```
 
 ---
 
@@ -1313,7 +1365,7 @@ and executes the [mapper](../type-aliases/EventualMapper.md) on each element.
 
 ##### mapper
 
-[`EventualMapper`](../type-aliases/EventualMapper.md)\<`A`, `any`\>
+[`EventualConsumer`](../type-aliases/EventualConsumer.md)\<`A`\>
 
 the operation to be invoked on each element.
 

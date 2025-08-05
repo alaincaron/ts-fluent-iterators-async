@@ -10,6 +10,7 @@
 
 ## Classes
 
+- [AsyncFlattenCollector](classes/AsyncFlattenCollector.md)
 - [AsyncFluentIterator](classes/AsyncFluentIterator.md)
 - [AsyncLazy](classes/AsyncLazy.md)
 - [PromiseIterator](classes/PromiseIterator.md)
@@ -25,6 +26,7 @@
 - [AsyncIteratorLike](type-aliases/AsyncIteratorLike.md)
 - [EventualBinaryMapper](type-aliases/EventualBinaryMapper.md)
 - [EventualCollector](type-aliases/EventualCollector.md)
+- [EventualConsumer](type-aliases/EventualConsumer.md)
 - [EventualIterable](type-aliases/EventualIterable.md)
 - [EventualIterableIterator](type-aliases/EventualIterableIterator.md)
 - [EventualIterator](type-aliases/EventualIterator.md)
